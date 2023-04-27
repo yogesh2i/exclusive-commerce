@@ -1,0 +1,126 @@
+@import '../../mixins.scss';
+.productList__container{
+    margin: 20px 0;
+    @include sm{
+        margin: 40px 0;
+
+    }
+    .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        line-height: 60px;
+        span{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            &::before{
+                display: block;
+                border-radius: 4px;
+                content: "";
+                width: 20px;
+                height: 40px;
+                background-color: #DB4444;
+            }
+        }
+        button {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            color: white;
+            @include sm {
+                width: 180px;
+                height: 40px;
+            }
+            width: 120px;
+            height: 35px;
+            cursor: pointer;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            border-radius: 4px;
+            background-color: #DB4444;
+            &:hover{
+                background-color: #ce5f5f;
+            }
+        }
+    }
+    .center {
+        margin: 20px 0;
+        @include sm{
+
+            margin: 40px 0;
+        }
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 10px;
+        .content {
+            width: calc(50% - 10px);
+            @include sm{
+                width: calc(25% - 10px);
+            }
+            cursor: pointer;
+            border-radius: 4px;
+            .img {
+                background-color: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 10px;
+                height: 120px;
+                @include m{
+                    padding: 20px;
+                    height: 206px;
+                }
+                img{
+                    width: 100%;
+                    height: 100%;
+                   
+                }
+
+            }
+                .add_to_cart {
+                    text-align: center;
+                    background-color: black;
+                    color: white;
+                    font-size: 14px;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    padding: 1px;
+                    line-height: 34px;
+                }
+
+            .name {
+                margin-top: 10px;
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 24px;
+                overflow: hidden;
+                text-overflow:ellipsis;
+                white-space: nowrap;
+                
+            }
+
+            .price {
+                margin-top: 2px;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 24px;
+                color: #DB4444;
+            }
+
+            &:hover {
+                .img {
+                    img {
+                        scale: 1.1;
+                        transition: all ease 0.3s;
+                    }
+                }
+            }
+        }
+    }
+}

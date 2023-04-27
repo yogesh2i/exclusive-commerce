@@ -1,0 +1,108 @@
+@import '../../mixins.scss';
+
+.contact__container{
+    display: flex;
+    
+    flex-wrap: wrap-reverse;
+    gap: 20px;
+    padding: 8px 10px 4px 10px;
+    @include md{
+        flex-wrap: nowrap;
+        padding: 100px 135px;
+    }
+    .left{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        width: 100%;
+        @include sm{
+            padding: 40px; 
+        }
+        @include m{
+            width: 40%;
+        }
+        box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.05);
+        border-radius: 4px;
+        
+        p{
+            margin: 15px 0;
+        }
+        .f1{
+            display: flex;
+            align-items: center;
+            svg{
+                background-color: #DB4444;
+                font-size: 30px;
+                color: #ffffff;
+                border-radius: 50%;
+            }
+            font-size: 20px;
+        }
+        .upper{
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+            width: 100%;
+            border-bottom: 2px solid grey;
+        }
+    }
+    .right{
+        padding: 10px;
+        @include sm{
+            padding: 40px;
+        }
+        box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.05);
+        border-radius: 4px;
+        .info{
+            display: flex;
+            gap: 10px;
+            @include m{
+                
+                flex-wrap: nowrap;
+
+            }
+            flex-wrap: wrap;
+            justify-content: space-between;
+            input{
+                width: 100%;
+                border: none;
+                outline: none;
+                height: 50px;
+                padding: 10px;
+                background-color: #c5c4c456;
+            }
+            
+        }
+        textarea{
+            margin: 32px 0;
+            padding: 10px;
+            width: 100%;
+            background-color: #c5c4c456;
+            outline: none;
+            border: none;
+        }
+        .submit__btn{
+            display: flex;
+            justify-content: flex-end;
+            button{
+                height: 36px;
+                width: 170px;
+                @include sm{
+
+                    height: 56px;
+                    width: 215px;
+                }
+                background-color: #DB4444;
+                border: none;
+                color:#ffffff;
+                border-radius: 4px;
+                cursor: pointer;
+                &:hover{
+                    background-color: #f37474;
+
+                }
+            }
+        }
+    }
+
+}

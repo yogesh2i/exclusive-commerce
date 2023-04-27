@@ -1,0 +1,165 @@
+@import '../../mixins.scss';
+
+.main {
+    .top_home {
+        height:200px;
+        background-color: black;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        padding: 20px 7px;
+        @include sm{
+            height: auto;
+            gap: 10%;
+            padding: 10px 50px;
+        }
+
+        .text {
+            width: 60%;
+            @include sm{
+
+                width: 40%;
+            }
+            gap: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+
+            span {
+                &:nth-child(1) {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    font-weight: 400;
+                    text-align: center;
+                    opacity: 0.8;
+                    vertical-align: middle;
+                    font-size: 12px;
+                    @include sm{
+                        line-height: 24px;
+                        font-size: 16px;
+                        gap: 8px;
+                    }
+                    @include xxl{
+                        font-size: 34px;
+                    }
+                    svg {
+                        font-size: 24px;
+                        @include sm{
+
+                            font-size: 40px;
+                        }
+                    }
+                }
+
+                &:nth-child(2) {
+                    letter-spacing: 0.04em;
+                    font-weight: 500;
+                    @include m{
+                        font-size: 40px;
+                        line-height: 50px;
+                    }
+                    @include md{
+                        font-size: 48px;
+                        line-height: 50px;
+                    }
+                    @include xxl{
+                        font-size: 120px;
+                        line-height: 130px;
+
+                    }
+                }
+                &:nth-child(3){
+                    display: flex;
+                    align-items: center;
+                    text-decoration: underline;
+                    cursor: pointer;
+                    font-size: 12px;
+                    @include sm{
+                        font-size: 16px;
+                    }
+                    @include xxl{
+                        font-size: 34px;
+                    }
+                    &:hover{
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }
+
+        .image {
+            position: relative;
+            top: 10px;
+            right: 20px;
+           width: 40%;
+            img{
+                width: 100%;
+                height: 80%;
+            }
+            @include sm{
+                width: 60%;
+            }
+        }
+    }
+    .category-section{
+        margin: 30px 0;
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            line-height: 60px;
+            span{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                &::before{
+                    display: block;
+                    border-radius: 4px;
+                    content: "";
+                    width: 20px;
+                    height: 40px;
+                    background-color: #DB4444;
+                }
+            }
+        }
+    .categories{
+        
+        overflow: scroll;
+        &::-webkit-scrollbar{
+            display: none;
+        }
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+
+        .row{
+            cursor: pointer;
+            border: 1px solid rgba(0,0,0,0.05);
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 190px;
+            p{
+                text-align: center;
+                overflow: hidden;
+                width: 170px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            img{
+                width: 100%;
+                height: 100%;
+            }
+           
+        }
+    }
+    }
+
+}

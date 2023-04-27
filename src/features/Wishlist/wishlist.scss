@@ -1,0 +1,15 @@
+@import '../../mixins.scss';
+
+.wishlist__container {
+    
+
+    @include sm {
+      
+        margin: 20px 0;
+
+    }
+   
+
+   
+    
+}

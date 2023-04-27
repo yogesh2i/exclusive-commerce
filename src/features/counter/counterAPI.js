@@ -1,6 +1,18 @@
 // A mock function to mimic making an async request for data
-export function fetchCount(amount = 1) {
-  return new Promise((resolve) =>
-    setTimeout(() => resolve({ data: amount }), 500)
-  );
+
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': `${process.env.REACT_APP_API_URL}`,
+		'X-RapidAPI-Host': 'target1.p.rapidapi.com'
+	}
+};
+export function fetchData(url) {
+    try{
+     const data = fetch(url,options);
+     return data;
+	}catch(error){
+		console.log(error);
+	}
+  
 }

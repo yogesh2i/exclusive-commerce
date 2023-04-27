@@ -1,0 +1,77 @@
+@import '../../mixins.scss';
+.animation {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  
+    &.slide-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+.extra__container {
+    overflow: hidden;
+    margin: 10px 0;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include sm {
+        margin: 80px 0;
+        flex-direction: row;
+        gap: 40px;
+    }
+    .row {
+        @include sm {
+            margin-top: 20px;
+        }
+        margin-top: 10px;
+        padding: 30px 20px;
+        cursor: pointer;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+        &:hover {
+            transition: all ease 0.3s;
+            background-color: #DB4444;
+            color: white;
+            .r1 {
+                border-color: rgba(200, 198, 198, 0.747);
+                background-color: white;
+                svg {
+                    color: black;
+                }
+            }
+        }
+        .r1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 6px solid grey;
+            border-radius: 50%;
+            background-color: black;
+            padding: 10px;
+            svg {
+                font-size: 24px;
+                color: white;
+            }
+        }
+        .r2 {
+            font-weight: 700;
+            font-size: 18px;
+            @include sm {
+                font-size: 24px;
+                line-height: 24px;
+            }
+        }
+        .r3 {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
+}

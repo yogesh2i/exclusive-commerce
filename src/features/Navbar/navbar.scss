@@ -1,0 +1,215 @@
+@import '../../mixins.scss';
+@keyframes slide {
+    0% {
+      transform: translate(0, -20px);
+      opacity:.1;
+    }
+   
+    100% {
+      transform: translate(0, 0);
+      opacity:1;
+    }
+  }
+      
+//hidden nav
+.hidden__nav{
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    left: 150px;
+    width: calc(100% - 150px);
+    // background-color: #fa6565;
+    background-color: #F5F5F5;
+    padding: 14px;
+    border-radius: 8px;
+    animation-name: slide;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  transform: translate(0, -20px);
+
+
+
+    .close{
+        display: flex;
+        justify-content: flex-end;
+        
+    }
+    .center{
+       ul{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        li{
+            font-weight: 400;
+            font-size: 16px;           
+            list-style: none;
+          a{
+            cursor: pointer;
+            text-decoration: none;
+            color: black;
+            &:hover{
+                color: #595959;
+            }
+          }
+        }
+       }
+    }
+
+}
+
+//
+@keyframes stickyHeader {
+    0% {transform: translateY(-80px);}
+    100% {transform: translateY(0);}
+}
+.main__container{
+    z-index: 2;
+    &.sticky-header{
+        animation: stickyHeader  0.6s ease ;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        
+    }
+    // background-color: #DB4444;
+    background-color: #F5F5F5;
+    padding: 5px 10px;
+    border-bottom: 1px solid grey;
+    @include sm{
+        padding: 15px 135px;
+    }
+    @include md{
+        padding: 15px 60px;
+        
+    }
+    @include xl{
+        padding: 15px 135px;
+
+    }
+   
+    .content{
+    
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .left{
+            .logo{
+                font-size: 1.5rem;
+                font-weight: 700;
+                letter-spacing: 0.03em;
+                cursor: pointer;
+                a{
+                    text-decoration: none;
+                    color: black;
+
+                }
+
+            }
+            
+        }
+        .center{
+            display: none;
+            @include m{
+                display: block;
+                font-size: 18px;
+            }
+            
+            ul{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 3rem;
+                li{
+                    font-weight: 400;
+                    font-size: 20px;           
+                    list-style: none;
+                    a{
+                        cursor: pointer;
+                        text-decoration: none;
+                        color: black;
+                        &:hover{
+                            color: #595959;
+                        }
+                    }
+                }
+            }
+
+        }
+        .right{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            .search__bar{
+                font-size: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                @include sm{
+                    padding: 5px 12px 5px 12px;
+                    border: 2px solid grey;
+                    background-color: #F5F5F5;
+                    border-radius: 4px;
+                }
+                input{
+                    width: 60%;
+                    display: none;
+                    outline: none;
+                    border: none;
+                    background-color: #F5F5F5;
+                    @include sm{
+                      width: 100%;
+                      display: block;
+                    }
+                }
+                
+            }
+            svg{
+                font-size: 24px;
+                @include sm{
+                    font-size: 28px;
+                }
+                cursor: pointer;
+                color: black;
+                text-decoration: none;
+                &:hover{
+                    color: #595959;
+                }
+            }
+            
+                .count_box{
+                    position: relative;
+                    top: 9px;
+                    .count{
+                        color: white;
+                        border-radius: 50%;
+                        padding: 1px 0;
+                        background: #bc0a0a;
+                        font-size: 10px;
+                        height: 100%;
+                        width: 74%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        position: relative;
+                        top: -34px;
+                        @include sm{
+                            top: -42px;
+                        }
+                        right: -15px;
+                    }
+                   
+                
+            }
+            .nav__hider{
+                @include m{
+                    display: none;
+                }
+            }
+            
+        }
+    }
+}

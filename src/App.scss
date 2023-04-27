@@ -1,0 +1,16 @@
+@import './mixins.scss';
+
+.app{
+    padding: 8px 10px;
+  @include sm {
+    padding: 20px 135px;
+  }
+  @include md {
+    padding: 20px 60px;
+  }
+  @include xl {
+    padding: 20px 135px;
+  }
+}
+
+

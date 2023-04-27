@@ -1,0 +1,94 @@
+@import '../../mixins.scss';
+
+.login__container {
+    display: flex;
+    // align-items: center;
+    gap: 100px;
+    justify-content: center;
+   
+    img {
+        width: 50%;
+        display: none;
+        
+        @include sm{
+            display: flex;
+           
+        }
+    }
+
+
+    .login__form {
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        h4 {
+
+            font-weight: 500;
+            font-size: 24px;
+            letter-spacing: 0.04em;
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        form {
+            margin: 1rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+
+            input {
+                width: 100%;
+                border: none;
+                border-bottom: 2px solid grey;
+                outline: none;
+                background-color: transparent;
+            }
+        }
+
+        button {
+            margin: 4px  0;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 2px;
+            font-size: 16px;
+            font-weight: 500;
+            height: 56px;
+            &:hover{
+                opacity: 0.9;
+            }
+        }
+
+        .create__account {
+            border: none;
+            color: #ffffff;
+            background-color: #DB4444;
+        }
+        .google__log{
+            svg{
+                font-size: 24px;
+                margin-right: 8px;
+            }
+        }
+        .already__login{
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            span{
+                color: #DB4444;
+                cursor: pointer;
+            }
+        }
+
+
+    }
+
+}
