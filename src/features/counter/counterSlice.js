@@ -7,7 +7,7 @@ const initialState = {
   topItems: null,
   productDetails: null,
   cartItems: JSON.parse(localStorage.getItem('cart'))!==null?JSON.parse(localStorage.getItem('cart')).filter((e)=>e!==null):[],
-  tcinList: JSON.parse(localStorage.getItem('cart'))!==[null]?JSON.parse(localStorage.getItem('cart')).map((e)=>{return (e!==null?e.tcin:13983742)}):[],
+  tcinList: JSON.parse(localStorage.getItem('cart'))!==null?JSON.parse(localStorage.getItem('cart')).map((e)=>{return (e!==null?e.tcin:13983742)}):[],
   wishlist: [],
   wishlistTcin: [],
   status: 'idle',
