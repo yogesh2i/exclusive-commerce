@@ -62,7 +62,7 @@ export const counterSlice = createSlice({
         }
       });
       localStorage.setItem('cart',JSON.stringify([...state.cartItems]));
-      console.log(state.cartItems)
+    
       
     },
     updatecart: (state, action) => {
