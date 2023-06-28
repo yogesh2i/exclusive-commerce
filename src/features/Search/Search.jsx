@@ -30,8 +30,8 @@ function Search(props) {
         }
          
         
-      } catch (error) {
-        alert('sorry we are facing some issue.')
+      } catch(error){
+        console.log(error)
       }
 
     },800);
