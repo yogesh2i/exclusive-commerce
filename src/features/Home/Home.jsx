@@ -1,13 +1,13 @@
-import React, { useEffect} from 'react';
+import React, {useEffect} from 'react';
 import './home.scss';
 import { BsApple } from 'react-icons/bs'
 import { AiOutlineArrowRight } from 'react-icons/ai'
-import ProductList from '../ProductList/ProductList';
 import iphone from '../../assets/imges/home.png';
-import Extra from '../Extra/Extra';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCategoriesAsync} from '../counter/counterSlice';
 import { useNavigate } from 'react-router';
+import ProductList from'../ProductList/ProductList';
+import Extra from '../Extra/Extra';
 
 
 
@@ -15,17 +15,19 @@ import { useNavigate } from 'react-router';
 function Home() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  let fetchedCategories = useSelector((state) => state.counter.categories);
+  let fetchedProducts = useSelector((state) => state.counter.items);
+  let fetchedTopProducts = useSelector((state) => state.counter.topItems);
   useEffect(()=>{
-     dispatch(fetchCategoriesAsync({type:'products',category:'category=5xtg6'}));
-     dispatch(fetchCategoriesAsync({type:'categories'}));
-     dispatch(fetchCategoriesAsync({type:'top',category:'category=5xt1a'}));
-    
-  },[dispatch])
-  const fetchedCategories = useSelector((state) => state.counter.categories);
-  const fetchedProducts = useSelector((state) => state.counter.items);
-  const fetchedTopProducts = useSelector((state) => state.counter.topItems);
-
-  
+    dispatch(fetchCategoriesAsync({type:'categories'}));
+    setTimeout(() => {
+      
+      dispatch(fetchCategoriesAsync({type:'top',category:'category=5xt1a'}));
+    }, 3000);
+    dispatch( fetchCategoriesAsync({type:'products',category:'category=5xtg6'}));
+  },[dispatch]);
+ 
+ 
  
   return (
     <>
@@ -50,11 +52,11 @@ function Home() {
             <span>Browse By Categories</span>
           </div>
           <div className="categories">
-            {fetchedCategories && fetchedCategories.components[0].cells.items.map((item,index)=>{
+            {fetchedCategories && fetchedCategories.slots[1100].content.taxonomy_nodes.map((item,index)=>{
               return (
-            <div className="row" key={index} onClick={()=>{navigate(`/${item.actions[0].target.split('?')[1]}/${item.displayText}`)}}>
-              <img src={item.image.uri} alt="" />
-              <p>{item.displayText}</p>
+            <div className="row" key={index} onClick={()=>{navigate(`/${item.actions[0].target.split('?')[1]}/${item.name}`)}}>
+              <img src={item.image_path} alt="" />
+              <p>{item.name}</p>
             </div>
 
               )

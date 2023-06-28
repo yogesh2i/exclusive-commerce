@@ -11,6 +11,7 @@ import About from './features/About/About';
 import Wishlist from './features/Wishlist/Wishlist';
 import SingleProduct from './features/SingleProduct/SingleProduct';
 import CategoryItems from './features/CategoryItems/CategoryItems';
+import SearchList from './features/Search/SearchList';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path='/wishlist' element={<Wishlist/>}/>
           <Route path='/product-view/:tcin' element={<SingleProduct/>}/>
           <Route path='/:id/:text' element={<CategoryItems/>}/>
+          <Route path='/:keyword' element={<SearchList/>}/>
         
       </Routes>
       </div>

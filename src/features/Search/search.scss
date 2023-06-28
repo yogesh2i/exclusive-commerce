@@ -1,0 +1,30 @@
+@import '../../mixins.scss';
+.search-container{
+    position: absolute;
+    overflow: hidden;
+    border-radius: 4px;
+    z-index: 99;
+    padding: 8px;
+    font-size: 0.8rem;
+    color: rgb(104, 104, 104);
+    background-color: #F5F5F5;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    left: 0;
+    width: 100%;
+    @include sm{
+        left: unset;
+    }
+ @include md{
+     width: 30%;
+    }
+    @include m{
+        width: 22%;
+    }
+    @include xl{
+        width: 17%;
+    }
+    
+    
+
+}

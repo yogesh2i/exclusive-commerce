@@ -18,6 +18,7 @@ function ProductList({ rating, category, data,id }) {
     dispatch(removeFomCart(tcin))
   }
 
+
    
   return (
     <div className='productList__container'>
@@ -27,7 +28,7 @@ function ProductList({ rating, category, data,id }) {
       </div>
       <div className="center">
         {status==='loading'? (<div style={{display:"flex",flexWrap:"wrap",flexDirection:"row",gap:"20px"}}><Loading/><Loading/><Loading/></div>) :<>
-        {data && data.data.search.products.map((entry, index) => {
+        {data!==null && !data.hasOwnProperty('errors') && data.data.search.products.map((entry, index) => {
          return (
             <div className="content" key={index}>
               <div className="img" onClick={() => { navigate(`/product-view/${entry.item.tcin}`) }}><img src={entry.item.enrichment.images.primary_image_url} alt="" /></div>

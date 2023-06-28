@@ -22,7 +22,7 @@ function CartItem() {
      
   return (
       <div className='cart-products'>
-        {cartData && console.log(cartData)}
+       
         {cartData && cartData.map((item,i)=>{
          return (<div className="cart-product" key={i}>
             <div className="img-container">

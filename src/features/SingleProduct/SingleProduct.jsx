@@ -43,9 +43,7 @@ function SingleProduct() {
     ref.current.style.color = "red";
     dispatch(addWishList(arg));
 
-  }
-  
-  return (
+    }  return (
 
    
     <>

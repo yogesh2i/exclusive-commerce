@@ -22,7 +22,7 @@ export default function CategoryItems() {
     function handleRemove(arg){
       dispatch(removeFomCart(arg));
     }
-     
+  
     return (
         <div className='productList__container'>
     
@@ -32,7 +32,7 @@ export default function CategoryItems() {
           </div>
           {status==='loading'?(<div style={{display:"flex",flexWrap:"wrap",flexDirection:"row",gap:"20px"}}><Loading/><Loading/><Loading/></div>):
           <div className="center">
-            {fetchedProducts && fetchedProducts.data.search.products.map((entry, index) => {
+            {fetchedProducts!==null && !fetchedProducts.hasOwnProperty('errors') &&fetchedProducts.data.search.products.map((entry, index) => {
               return (
                 <div className="content" key={index}>
                   <div className="img" onClick={() => { navigate(`/product-view/${entry.item.tcin}`) }}><img src={entry.item.enrichment.images.primary_image_url} alt="" /></div>
