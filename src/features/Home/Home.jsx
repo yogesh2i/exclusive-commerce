@@ -35,7 +35,7 @@ function Home() {
       <div className="main">
         <div className="top_home">
           <div className="text">
-            <span><BsApple />&nbsp;iPhone 14 Series</span>
+            <span><BsApple />&nbsp;iPhone 15 Series</span>
             <span>Up to 10% off Voucher</span>
             <span>Shop Now &nbsp; <AiOutlineArrowRight /></span>
           </div>
@@ -52,7 +52,7 @@ function Home() {
             <span>Browse By Categories</span>
           </div>
           <div className="categories">
-            {fetchedCategories && fetchedCategories.slots[1100].content.taxonomy_nodes.map((item,index)=>{
+            {fetchedCategories && fetchedCategories.slots[1200].content.taxonomy_nodes.map((item,index)=>{
               return (
             <div className="row" key={index} onClick={()=>{navigate(`/${item.actions[0].target.split('?')[1]}/${item.name}`)}}>
               <img src={item.image_path} alt="" />
