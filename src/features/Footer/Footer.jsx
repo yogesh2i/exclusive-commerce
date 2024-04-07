@@ -18,7 +18,7 @@ function Footer() {
       <div className="col col-2">
         <ul>
             <li><h3>Support</h3> </li>
-            <li>111 Bijoy sarani, Dhaka,  DH 1515, Bangladesh.</li>
+            <li>111 Gokuldham Society, Mumbai,  DH 1515, India.</li>
             <li>exclusive@gmail.com</li>
             <li>+88085-5672-9999</li>
         </ul>
