@@ -4,11 +4,22 @@ import {MdClose} from 'react-icons/md';
 import {BsCartX} from 'react-icons/bs';
 import CartItem from './CartItem/CartItem';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
 
 
 
 export default function Cart({setShowCart}) {
   const cartData = useSelector((state)=>(state.counter.cartItems));
+  const loggedIn = useSelector((state)=>(state.counter.loggedIn));
+  const navigate = useNavigate();
+  const checkout = ()=>{
+    if(loggedIn?.isLoggedIn){
+      alert("We are facing downtime!");
+    }else{
+      setShowCart(false);
+      navigate("/login");
+    }
+  }
   return (
    <>
    <div className="cart-panel">
@@ -36,7 +47,7 @@ export default function Cart({setShowCart}) {
           },0)).toFixed(2)}</span>
         </div>
         <div className="button">
-          <button className="checkout-cart">CheckOut</button>
+          <button className="checkout-cart" onClick={()=>checkout()}>CheckOut</button>
         </div>
       </div>
       </>

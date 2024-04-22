@@ -20,6 +20,7 @@ function Home() {
   let fetchedTopProducts = useSelector((state) => state.counter.topItems);
   useEffect(()=>{
     dispatch(fetchCategoriesAsync({type:'categories'}));
+
     setTimeout(() => {
       
       dispatch(fetchCategoriesAsync({type:'top',category:'category=5xt1a'}));

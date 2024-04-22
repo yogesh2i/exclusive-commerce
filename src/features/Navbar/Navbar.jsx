@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import { useDispatch, useSelector } from 'react-redux';
 import Search from '../Search/Search';
-import { setQuery } from '../counter/counterSlice';
+import { removeLoggedIn, setQuery } from '../counter/counterSlice';
 
 
 
@@ -17,6 +17,7 @@ function Navbar() {
   const [getScrolled,setScrolled] = useState(false);
   const showCartCount = useSelector((state)=>(state.counter.cartItems));
   const wishlist = useSelector((state)=>(state.counter.wishlist));
+  const loggedin = useSelector((state)=>(state.counter.loggedIn));
   const dispatch = useDispatch();
   const handleScroll=()=>{
     const offset = window.scrollY;
@@ -52,7 +53,8 @@ function Navbar() {
                     <li className="nav__Items"><Link to='/' onClick={()=>setShowMenu(!showMenu)} >Home</Link></li>
                     <li className="nav__Items"><Link to='/contact'  onClick={()=>setShowMenu(!showMenu)} >Contact Us</Link></li>
                     <li className="nav__Items"><Link to='/about'  onClick={()=>setShowMenu(!showMenu)} >About</Link></li>
-                    <li className="nav__Items"><Link to='/login'  onClick={()=>setShowMenu(!showMenu)} >Sign Up</Link></li>
+                    {!loggedin?.isLoggedIn?<li className="nav__Items"><Link to='/login'  onClick={()=>setShowMenu(!showMenu)} >Sign Up</Link></li>:
+                    <li className="nav__Items"><span  onClick={()=>{setShowMenu(!showMenu); dispatch(removeLoggedIn({"loggedIn":false}))}} >Logout</span></li>}
                 </ul>
             </div>
             </div>
@@ -68,7 +70,8 @@ function Navbar() {
                     <li className="nav__Items"><Link to='/'>Home</Link></li>
                     <li className="nav__Items"><Link to='/contact'>Contact Us</Link></li>
                     <li className="nav__Items"><Link to='/about'>About</Link></li>
-                    <li className="nav__Items"><Link to='/login'>Sign Up</Link></li>
+                    {!loggedin?.isLoggedIn?<li className="nav__Items"><Link to='/login'>Sign Up</Link></li>:
+                    <li className="nav__Items"><span style={{"cursor":"pointer"}}onClick={()=>{dispatch(removeLoggedIn({"loggedIn":false}))}}>Logout</span></li>}
                 </ul>
             </div>
             <div className="right">
