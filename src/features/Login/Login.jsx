@@ -3,6 +3,8 @@ import './login.scss';
 import image from '../../assets/imges/login-img.png';
 import { FcGoogle } from 'react-icons/fc';
 import { useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { addLoggedIn } from '../counter/counterSlice';
 
 function Login() {
   const [selectWay,setWay] = useState('signIn');
@@ -10,6 +12,7 @@ function Login() {
   const [pass,setPass] = useState('');
   const [email,setEmail] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const logIn = async()=>{
     const option = {
       method : 'POST',
@@ -26,6 +29,7 @@ function Login() {
        const res = await fetch("http://localhost:2000/login",option);
        const r = await res.json();
        if(res.ok){
+        dispatch(addLoggedIn({'isLoggedIn': true}));
         navigate('/')
        }else{
         alert(r.message)
@@ -35,6 +39,7 @@ function Login() {
        const r = await res.json();
        if(res.ok){
         alert('Account created successfully');
+        dispatch(addLoggedIn({'isLoggedIn': true}));
         navigate('/')
        }else{
         alert(r.message)

@@ -12,7 +12,7 @@ const initialState = {
   tcinList: JSON.parse(localStorage.getItem('cart'))!==null?JSON.parse(localStorage.getItem('cart')).map((e)=>{return (e!==null?e.tcin:13983742)}):[],
   wishlist: JSON.parse(localStorage.getItem('wishlist'))!==null?JSON.parse(localStorage.getItem('wishlist')).filter((e)=>e!==null):[],
   wishlistTcin: JSON.parse(localStorage.getItem('wishlist'))!==null?JSON.parse(localStorage.getItem('wishlist')).map((e)=>{return (e!==null?e.tcin:13983742)}):[],
-
+  loggedIn: JSON.parse(localStorage.getItem('loggedIn')),
   status: 'idle',
 };
 
@@ -57,7 +57,14 @@ export const counterSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
-   
+    addLoggedIn: (state,action)=>{
+          state.loggedIn = action.payload;
+          localStorage.setItem('loggedIn',JSON.stringify(state.loggedIn))
+    },
+    removeLoggedIn: (state,action)=>{
+          state.loggedIn = action.payload;
+          localStorage.setItem('loggedIn',JSON.stringify(state.loggedIn))
+    },
     removeFomCart: (state,action) => {
       state.cartItems = state.cartItems.filter((i)=>i.tcin!==action.payload);
       localStorage.setItem('cart',JSON.stringify([...state.cartItems]));
@@ -165,7 +172,7 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { removeFomCart, updatecart ,handleQtyCart,addWishList,removeWishlist,setQuery} = counterSlice.actions;
+export const { removeFomCart, updatecart ,handleQtyCart,addWishList,removeWishlist,setQuery,addLoggedIn,removeLoggedIn} = counterSlice.actions;
 
 
 
