@@ -1,4 +1,4 @@
-<h3>Check out live at -- <a>https://main--youtube2i.netlify.app/</a></h3>
+<h3>Check out live at -- (https://main--youtube2i.netlify.app) </h3>
 
 # Getting Started with Create React App and Redux
 
