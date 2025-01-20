@@ -1,4 +1,4 @@
-<h3>Check out live at -- (https://main--youtube2i.netlify.app) </h3>
+<h3>Check out live at -- (https://main--youtube2i.netlify.app](https://yogesh2i.github.io/exclusive-commerce/) </h3>
 
 # Getting Started with Create React App and Redux
 
