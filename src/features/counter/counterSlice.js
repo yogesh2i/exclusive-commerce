@@ -27,7 +27,10 @@ export const fetchCategoriesAsync = createAsyncThunk(
     }
     else if(type==='categories'){
       const response = await fetchData('https://target1.p.rapidapi.com/categories/v2/list');
-      const data = await response.json();
+      let data = await response.json();
+      if(data["error"]){
+        data = null;
+      }
       return {data,type};
     }
     else if(type==='top'){
@@ -145,6 +148,7 @@ export const counterSlice = createSlice({
       })
       .addCase(fetchCategoriesAsync.fulfilled, (state, action) => {
         if(action.payload.type==='categories'){
+           console.log(action.payload.data);
           state.categories = action.payload.data;
           state.status = 'idle'
         
